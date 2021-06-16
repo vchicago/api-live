@@ -1,0 +1,78 @@
+openapi: 3.0.0
+servers:
+  # Added by API Auto Mocking Plugin
+  - description: Denver API
+    url: https://api.denartcc.org
+info:
+  version: "1.0.0"
+  title: "ZDV Overflight API v1"
+  description: >-
+    This is v1 of the Denver Overflight API
+paths:
+  /live/{facId}:
+    get:
+      summary: Get overflights within boundaries of {facId}
+      description: >-
+        This call will get all flights within the boundaries of {facId} +/- 2 minutes since the backend was last updated
+      parameters:
+        - name: facId
+          in: path
+          description: Facility ID (IATA, ie, ZDV)
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              example:
+                [
+                  {
+                    "callsign": "AAL7457",
+                    "type": "A320/L",
+                    "dep": "KDFW",
+                    "arr": "KEGE",
+                    "cid": 920704,
+                    "route": "LOWGN8 ROLLS LBL SELLS AVVVS RLG",
+                    "lat": 39.64069,
+                    "lon": -106.91243,
+                    "hdg": 171,
+                    "spd": 0,
+                    "alt": 6554,
+                    "lastSeen": "2021-06-15T23:03:20-05:00"
+                  }
+                ]
+              schema:
+                $ref: '#/components/schemas/Flights'
+components:
+  schemas: 
+    Flights:
+      type: array
+      items:
+        type: object
+        properties:
+          callsign:
+            type: string
+          type:
+            type: string
+          dep:
+            type: string
+          arr:
+            type: string
+          cid:
+            type: integer
+          route:
+            type: string
+          lat:
+            type: number
+          lon:
+            type: number
+          hdg:
+            type: integer
+          spd:
+            type: integer
+          alt:
+            type: integer
+          lastSeen:
+            type: string
