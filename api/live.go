@@ -5,8 +5,8 @@ import (
 	"time"
 
 	"github.com/gin-gonic/gin"
-	"github.com/kzdv/overflight-api/database"
-	kzdvTypes "github.com/kzdv/types/database"
+	"github.com/vchicago/overflight-api/database"
+	dbTypes "github.com/vchicago/types/database"
 )
 
 type Flightsv1 struct {
@@ -28,7 +28,7 @@ type Flightsv1 struct {
 }
 
 func GetLive(c *gin.Context) {
-	var flights []kzdvTypes.Flights
+	var flights []dbTypes.Flights
 	database.DB.Where("facility = ?", c.Param("fac")).Find(&flights)
 	var retFlights []Flightsv1
 

@@ -7,7 +7,7 @@ import (
 	"time"
 
 	"github.com/dhawton/log4g"
-	kzdvTypes "github.com/kzdv/types/database"
+	kzdvTypes "github.com/vchicago/types/database"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 	"gorm.io/gorm/logger"

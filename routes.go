@@ -4,7 +4,7 @@ import (
 	"net/http"
 
 	"github.com/gin-gonic/gin"
-	"github.com/kzdv/overflight-api/api"
+	"github.com/vchicago/overflight-api/api"
 )
 
 func SetupRoutes(engine *gin.Engine) {
