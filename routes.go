@@ -8,12 +8,14 @@ import (
 )
 
 func SetupRoutes(engine *gin.Engine) {
-	engine.StaticFile("/live", "./static/index.html")
-	engine.StaticFile("/live/openapi.yaml", "./static/openapi.yaml")
+	overflight := engine.Group("/overflight/v1")
+	{
+		overflight.GET("/:fac", api.GetLive)
+	}
+	engine.StaticFile("/overflight", "./static/index.html")
+	engine.StaticFile("/overflight/openapi.yaml", "./static/openapi.yaml")
 
-	engine.GET("/live/ping", func(c *gin.Context) {
+	engine.GET("/overflight/ping", func(c *gin.Context) {
 		c.JSON(http.StatusOK, gin.H{"message": "PONG"})
 	})
-
-	engine.GET("/live/:fac", api.GetLive)
 }

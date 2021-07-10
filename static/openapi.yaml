@@ -1,15 +1,15 @@
 openapi: 3.0.0
 servers:
   # Added by API Auto Mocking Plugin
-  - description: Denver API
-    url: https://api.denartcc.org
+  - description: Chicago Overflight API
+    url: https://api.vzau.cloud/overflight
 info:
   version: "1.0.0"
-  title: "ZDV Overflight API v1"
+  title: "ZAU Overflight API v1"
   description: >-
-    This is v1 of the Denver Overflight API
+    This is v1 of the Chicago Overflight API
 paths:
-  /live/{facId}:
+  /v1/{facId}:
     get:
       summary: Get overflights within boundaries of {facId}
       description: >-
@@ -17,7 +17,7 @@ paths:
       parameters:
         - name: facId
           in: path
-          description: Facility ID (IATA, ie, ZDV)
+          description: Facility ID (IATA, ie, ZAU)
           required: true
           schema:
             type: string
