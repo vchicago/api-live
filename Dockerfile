@@ -8,7 +8,7 @@ RUN CGO_ENABLED=0 GOOS=linux go build -a -o app .
 
 FROM alpine:latest
 RUN mkdir /app
-ADD static /app
+ADD static /app/static
 COPY --from=builder /app/app /app/app
 WORKDIR /app
 ENTRYPOINT [ "./app" ]
