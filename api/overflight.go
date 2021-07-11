@@ -4,7 +4,7 @@ import (
 	"net/http"
 
 	"github.com/gin-gonic/gin"
-	"github.com/vchicago/live-api/database"
+	"github.com/vchicago/api-live/database"
 	dbTypes "github.com/vchicago/types/database"
 )
 

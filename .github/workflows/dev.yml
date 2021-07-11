@@ -15,7 +15,7 @@ jobs:
       - name: Prepare
         id: prep
         run: |
-          DOCKER_IMAGE=vchicago/live-api
+          DOCKER_IMAGE=vchicago/api-live
           VERSION=dev
           if [[ $GITHUB_REF == refs/tags/* ]]; then
             VERSION=${GITHUB_REF#refs/tags/v}
@@ -46,9 +46,9 @@ jobs:
         env:
           KUBE_CONFIG: ${{ secrets.KUBECTL }}
         with:
-          args: set image deployment/live-api live-api=vchicago/live-api:${{ steps.prep.outputs.tags }} -n dev
+          args: set image deployment/api-live api-live=vchicago/api-live:${{ steps.prep.outputs.tags }} -n dev
       - name: Verify deployment
         if: ${{ github.event_name != 'push' }}
         uses: actions-hub/kubectl@master
         with:
-          args: rollout status deployment/live-api -n dev
+          args: rollout status deployment/api-live -n dev

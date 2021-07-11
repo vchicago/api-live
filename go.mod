@@ -1,4 +1,4 @@
-module github.com/vchicago/live-api
+module github.com/vchicago/api-live
 
 go 1.16
 
