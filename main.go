@@ -7,7 +7,7 @@ import (
 	"github.com/common-nighthawk/go-figure"
 	"github.com/gin-gonic/gin"
 	"github.com/joho/godotenv"
-	"github.com/vchicago/overflight-api/database"
+	"github.com/vchicago/live-api/database"
 
 	"github.com/dhawton/log4g"
 )

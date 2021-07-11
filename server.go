@@ -2,7 +2,7 @@ package main
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/vchicago/overflight-api/middleware"
+	"github.com/vchicago/live-api/middleware"
 )
 
 type Server struct {

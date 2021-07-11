@@ -1,15 +1,15 @@
 openapi: 3.0.0
 servers:
   # Added by API Auto Mocking Plugin
-  - description: Chicago Overflight API
-    url: https://api.vzau.cloud/overflight
+  - description: Chicago Live Data API
+    url: https://api.vzau.cloud/v1/live
 info:
   version: "1.0.0"
-  title: "ZAU Overflight API v1"
+  title: "ZAU Live Data API v1"
   description: >-
     This is v1 of the Chicago Overflight API
 paths:
-  /v1/{facId}:
+  /flights/{facId}:
     get:
       summary: Get overflights within boundaries of {facId}
       description: >-
@@ -26,53 +26,80 @@ paths:
           description: OK
           content:
             application/json:
-              example:
-                [
-                  {
-                    "callsign": "AAL7457",
-                    "type": "A320/L",
-                    "dep": "KDFW",
-                    "arr": "KEGE",
-                    "cid": 920704,
-                    "route": "LOWGN8 ROLLS LBL SELLS AVVVS RLG",
-                    "lat": 39.64069,
-                    "lon": -106.91243,
-                    "hdg": 171,
-                    "spd": 0,
-                    "alt": 6554,
-                    "lastSeen": "2021-06-15T23:03:20-05:00"
-                  }
-                ]
               schema:
                 $ref: '#/components/schemas/Flights'
+  /controllers/{facId}:
+    get:
+      summary: Get online controllers within defined {facId}
+      description: >-
+        This call will get online controllers of {facId} +/- 2 minutes since the backend was last updated
+      parameters:
+        - name: facId
+          in: path
+          description: Facility ID (IATA, ie, ZAU)
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Controllers'
 components:
   schemas: 
+    Controllers:
+      type: array
+      items:
+        type: object
+        properties:
+          id:
+            type: integer
+          callsign:
+            type: string
+          cid:
+            type: integer
+          name:
+            type: string
+          facility:
+            type: string
+          frequency:
+            type: string
+          logon_time:
+            type: string
+          created_at:
+            type: string
+          updated_at:
+            type: string
     Flights:
       type: array
       items:
         type: object
         properties:
+          id:
+            type: integer
           callsign:
             type: string
-          type:
+          aircraft:
             type: string
-          dep:
+          departure:
             type: string
-          arr:
+          arrival:
             type: string
           cid:
             type: integer
           route:
             type: string
-          lat:
+          latitude:
             type: number
-          lon:
+          longitude:
             type: number
-          hdg:
+          heading:
             type: integer
-          spd:
+          groundspeed:
             type: integer
-          alt:
+          altitude:
             type: integer
-          lastSeen:
+          updated_at:
             type: string

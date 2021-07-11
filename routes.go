@@ -4,18 +4,19 @@ import (
 	"net/http"
 
 	"github.com/gin-gonic/gin"
-	"github.com/vchicago/overflight-api/api"
+	"github.com/vchicago/live-api/api"
 )
 
 func SetupRoutes(engine *gin.Engine) {
-	overflight := engine.Group("/overflight/v1")
+	live := engine.Group("/v1/live")
 	{
-		overflight.GET("/:fac", api.GetLive)
+		live.GET("/flights/:fac", api.GetFlights)
+		live.GET("/controllers/:fac", api.GetControllers)
 	}
-	engine.StaticFile("/overflight", "./static/index.html")
-	engine.StaticFile("/overflight/openapi.yaml", "./static/openapi.yaml")
+	engine.StaticFile("/v1/live", "./static/index.html")
+	engine.StaticFile("/v1/live/openapi.yaml", "./static/openapi.yaml")
 
-	engine.GET("/overflight/ping", func(c *gin.Context) {
+	engine.GET("/v1/live/ping", func(c *gin.Context) {
 		c.JSON(http.StatusOK, gin.H{"message": "PONG"})
 	})
 }
