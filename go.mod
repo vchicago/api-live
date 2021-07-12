@@ -4,8 +4,8 @@ go 1.16
 
 require (
 	github.com/common-nighthawk/go-figure v0.0.0-20210622060536-734e95fb86be
-	github.com/dhawton/log4g v0.99.2
-	github.com/gin-contrib/cors v1.3.1 // indirect
+	github.com/dhawton/log4g v0.99.3
+	github.com/gin-contrib/cors v1.3.1
 	github.com/gin-gonic/gin v1.7.2
 	github.com/go-playground/validator/v10 v10.7.0 // indirect
 	github.com/goccy/go-json v0.7.0 // indirect
@@ -22,8 +22,8 @@ require (
 	github.com/modern-go/reflect2 v1.0.1 // indirect
 	github.com/robfig/cron/v3 v3.0.1 // indirect
 	github.com/ugorji/go v1.2.6 // indirect
-	github.com/vchicago/types v0.0.0-20210711012418-bc8f80425ee6
-	golang.org/x/crypto v0.0.0-20210616213533-5ff15b29337e // indirect
+	github.com/vchicago/types v0.0.0-20210712025007-28a82fd67544
+	golang.org/x/crypto v0.0.0-20210711020723-a769d52b0f97 // indirect
 	golang.org/x/sys v0.0.0-20210630005230-0f9fa26af87c // indirect
 	golang.org/x/text v0.3.6 // indirect
 	google.golang.org/protobuf v1.27.1 // indirect
