@@ -22,8 +22,8 @@ import (
 	"net/http"
 
 	"github.com/gin-gonic/gin"
-	"github.com/vchicago/api-live/database"
-	dbTypes "github.com/vchicago/types/database"
+	"github.com/vzau/api/database"
+	dbTypes "github.com/vzau/types/database"
 )
 
 func GetFlights(c *gin.Context) {

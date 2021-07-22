@@ -25,7 +25,7 @@ import (
 	"github.com/common-nighthawk/go-figure"
 	"github.com/gin-gonic/gin"
 	"github.com/joho/godotenv"
-	"github.com/vchicago/api-live/database"
+	"github.com/vzau/api/database"
 
 	"github.com/dhawton/log4g"
 )

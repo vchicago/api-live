@@ -25,7 +25,7 @@ import (
 	"time"
 
 	"github.com/dhawton/log4g"
-	kzdvTypes "github.com/vchicago/types/database"
+	kzdvTypes "github.com/vzau/types/database"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 	"gorm.io/gorm/logger"

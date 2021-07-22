@@ -22,7 +22,7 @@ import (
 	"net/http"
 
 	"github.com/gin-gonic/gin"
-	"github.com/vchicago/api-live/api"
+	"github.com/vzau/api/api"
 )
 
 func SetupRoutes(engine *gin.Engine) {
